@@ -132,14 +132,15 @@ nav {
 }
 
 .quote-container {
-    max-width: 600px;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .quote-text {
-    font-size: 3rem;
+    font-size: 4rem !important;
     color: #1a1a1a;
-    line-height: 1.6;
+    line-height: 1.5;
     margin-bottom: 2.5rem;
     font-weight: 300;
     font-style: italic;
@@ -150,6 +151,7 @@ nav {
     opacity: 0;
     animation: fadeInWord 0.6s ease-in forwards;
     margin-right: 0.3em;
+    font-size: inherit !important;
 }
 
 .quote-text .word:nth-child(1) { animation-delay: 0.2s; }
@@ -181,12 +183,13 @@ nav {
 }
 
 .quote-author {
-    font-size: 0.95rem;
+    font-size: 1.2rem;
     color: #666;
     font-weight: 400;
     opacity: 0;
     animation: fadeInWord 0.8s ease-in forwards;
     animation-delay: 2.8s;
+    margin-top: 1rem;
 }
 
 
@@ -379,31 +382,74 @@ body.dark-mode footer {
 
 .animation-grid {
     display: grid;
-    gap: 4rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
     margin-top: 2rem;
 }
 
 p span  {
-    margin-right: 10px;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+}
+
+p span:last-child {
+    margin-bottom: 0;
 }
 
 .animation-item {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    padding: 2rem;
+    border: 2px solid #e5e5e5;
+    border-radius: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.animation-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .animation-title {
-    font-size: 1.25rem;
-    font-weight: 400;
+    font-size: 1.1rem;
+    font-weight: 500;
     color: #1a1a1a;
     margin-bottom: 0.5rem;
 }
 
+.animation-item p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 0.75rem;
+}
+
+.animation-item p:last-of-type {
+    margin-bottom: 0;
+}
+
+.animation-item p i {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.animation-item .tech-details {
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+}
+
+body.dark-mode .animation-item .tech-details {
+    background: #2a2a2a;
+}
+
 .video-wrapper {
     width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
+    margin-top: auto;
     overflow: hidden;
 }
 
@@ -421,8 +467,20 @@ p span  {
 }
 
 /* Dark mode for animation projects */
+body.dark-mode .animation-item {
+    border-color: #333;
+}
+
+body.dark-mode .animation-item:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
 body.dark-mode .animation-title {
     color: #e5e5e5;
+}
+
+body.dark-mode .animation-item p {
+    color: #999;
 }
 
 body.dark-mode .animation-video {
@@ -460,11 +518,19 @@ body.dark-mode .animation-video:hover {
     }
 
     .quote-text {
-        font-size: 1.5rem;
+        font-size: 4rem !important;
     }
     
     .quote-text .word {
         margin-right: 0.25em;
+    }
+    
+    .quote-container {
+        padding: 0 1rem;
+    }
+    
+    .quote-author {
+        font-size: 1.2rem;
     }
 
     .nav-links {
@@ -481,7 +547,12 @@ body.dark-mode .animation-video:hover {
     }
 
     .animation-grid {
-        gap: 3rem;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .animation-item {
+        padding: 1.5rem;
     }
 
     .animation-video {
